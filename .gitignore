@@ -2,3 +2,4 @@ bower_components
 .tmp
 node_modules
 build
+vendor
