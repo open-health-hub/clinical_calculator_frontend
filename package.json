@@ -1,0 +1,7 @@
+{
+  "name": "clinical_calculator_frontend",
+  "version": "0.1.0",
+  "dependencies": {
+    "grunt": "~0.4.5"
+  }
+}
