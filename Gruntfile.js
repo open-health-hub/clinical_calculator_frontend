@@ -49,6 +49,28 @@ module.exports = function(grunt) {
 
     usemin: {
       html: '<%= project.directories.build.base %>/<%= project.files.html %>'
+    },
+
+    connect: {
+      build: {
+        options: {
+          base: '<%= project.directories.build.base %>',
+          port: 3000,
+          livereload: true
+        }
+      }
+    },
+
+    watch: {
+      build: {
+        files: '<%= project.directories.source %>/**',
+        tasks: [ 'copy', 'parse', 'usemin' ]
+      },
+
+      options: {
+        spawn: false,
+        livereload: true
+      }
     }
   });
 
@@ -59,15 +81,29 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
+  grunt.registerTask('parse', [
+    'concat:generated',
+    'uglify:generated',
+    'cssmin:generated'
+  ])
 
   grunt.registerTask('build', [
     'clean',
     'copy',
     'bower-install-simple',
     'useminPrepare',
-    'concat:generated',
-    'uglify:generated',
-    'cssmin:generated',
+    'parse',
     'usemin'
   ]);
+
+  grunt.registerTask('server', [
+    'build',
+    'connect',
+    'watch'
+  ]);
+
+  grunt.registerTask('default', 'build');
 };
