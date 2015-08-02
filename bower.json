@@ -2,6 +2,7 @@
   "name": "clinical_calculator_frontend",
   "version": "0.1.0",
   "dependencies": {
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "uri.js": "~1.16.0"
   }
 }
