@@ -1,7 +1,56 @@
-<!-- build:css css/frontend.min.css -->
-<link rel="stylesheet" href="../vendor/bootstrap/dist/css/bootstrap.css">
-<!-- endbuild -->
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- build:js js/frontend.min.js -->
-<script src="js/main.js"></script>
-<!-- endbuild -->
+    <title>Clinical Calculator</title>
+
+    <!-- build:css css/frontend.min.css -->
+      <link rel="stylesheet" href="../vendor/bootstrap/dist/css/bootstrap.css">
+      <link rel="stylesheet" href="/css/glyphicon-spin.css">
+      <link rel="stylesheet" href="/css/main.css">
+    <!-- endbuild -->
+  </head>
+  <body>
+    <div class="container-wrapper">
+      <div class="container">
+        <h1 class="text-center calculator-header">Clinical Calculator</h1>
+
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <div id="calculator-alert-box"></div>
+            <form id="calculator-form" class="calculator-form">
+              <div class="form-group">
+                <label for="field_weight_in_kg">Weight</label>
+                <input type="number" step="any" class="form-control" id="field_weight_in_kg">
+              </div>
+              <button type="submit" class="btn btn-block btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calculator-loader">
+      <span class="loader-element glyphicon glyphicon-cog glyphicon-spin"></span>
+    </div>
+
+
+    <!-- build:js js/frontend.min.js -->
+      <script src="../vendor/jquery/dist/jquery.js"></script>
+      <script src="../vendor/bootstrap/dist/js/bootstrap.js"></script>
+
+      <script src="../vendor/uri.js/src/URI.js"></script>
+
+
+      <script src="/js/endpoint.js"></script>
+      <script src="/js/formendpoint.js"></script>
+
+      <script src="/js/main.js"></script>
+    <!-- endbuild -->
+
+    <script>
+      defineEndpoint("centile", "Centile", { weight_in_kg: "Weight" }, "calculator-form", "http://vps.jackwilsdon.me");
+    </script>
+  </body>
+</html>
