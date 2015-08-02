@@ -13,7 +13,8 @@ module.exports = function(grunt) {
       files: {
         html: 'index.html',
         scripts: 'js/**/*.js',
-        copy: [ '<%= project.files.html %>', '!<%= project.files.scripts %>' ]
+        styles: 'css/**/*.css',
+        copy: [ '**', '!<%= project.files.scripts %>', '!<%= project.files.styles %>' ]
       }
     },
 
@@ -26,6 +27,13 @@ module.exports = function(grunt) {
         src: '<%= project.files.copy %>',
         dest: '<%= project.directories.build.base %>',
         cwd: '<%= project.directories.source %>',
+        expand: true
+      },
+
+      fonts: {
+        src: '*',
+        dest: '<%= project.directories.build.base %>/fonts/',
+        cwd: 'vendor/bootstrap/dist/fonts',
         expand: true
       }
     },
