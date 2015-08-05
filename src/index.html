@@ -79,7 +79,16 @@
     <!-- endbuild -->
 
     <script>
-      defineEndpoint("centile", "Centile", { weight_in_kg: "Weight" }, "calculator-form", "http://vps.jackwilsdon.me");
+      defineEndpoint("centile", "Centile", {
+
+      }, {
+        weight_in_kg: "Weight",
+        height_in_m: "Height",
+        day_of_birth: "Day of birth",
+        month_of_birth: "Month of birth",
+        year_of_birth: "Year of birth",
+        field_sex: "Sex"
+      }, "calculator-form", "calculator-alert-box" /*, "http://vps.jackwilsdon.me" */);
     </script>
   </body>
 </html>
