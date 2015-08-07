@@ -61,7 +61,7 @@ function endpointCallback(fields, responseValues, alertContainer, response) {
       messages.push("<b>" + name + "</b>: " + fieldValue);
     }
 
-    showAlert("alert-success", message.join("<br />"), alertContainer);
+    showAlert("alert-success", messages.join("<br />"), alertContainer);
   }
 }
 
