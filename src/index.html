@@ -80,14 +80,16 @@
 
     <script>
       defineEndpoint("centile", "Centile", {
-
-      }, {
         weight_in_kg: "Weight",
         height_in_m: "Height",
         day_of_birth: "Day of birth",
         month_of_birth: "Month of birth",
         year_of_birth: "Year of birth",
-        field_sex: "Sex"
+        sex: "Sex"
+      }, {
+        bmi_centile: "BMI Centile",
+        height_centile: "Height Centile",
+        weight_centile: "Weight Centile"
       }, "calculator-form", "calculator-alert-box" /*, "http://vps.jackwilsdon.me" */);
     </script>
   </body>
