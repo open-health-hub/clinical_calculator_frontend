@@ -14,6 +14,7 @@ function showAlert(clazz, text, baseElement) {
 
   div.innerHTML += text;
 
+  baseElement.innerHTML = '';
   baseElement.appendChild(div);
 }
 
@@ -39,29 +40,35 @@ function endpointCallback(fields, responseValues, alertContainer, response) {
 
     for (var fieldName in responseValues) {
       var fieldValue = result[fieldName],
-          name = fieldName;
+          name = fieldName,
+          nameValue = responseValues[name];
 
       if (fieldValue === null || fieldValue === undefined) {
-        showAlert("alert-danger", "Sorry, something went wrong!", alertContainer);
-        throw new Error("field `" + fieldName + "' not found in response");
+        continue;
       }
 
-      if (typeof(fieldValue) === "function") {
-        name = fieldValue(fieldName);
-      } else if (typeof(fieldValue) === "object") {
-        if (fieldValue.hasOwnProperty("prefix")) {
-          name = fieldValue.prefix + parsedValue;
+      if (typeof(nameValue) === "function") {
+        name = nameValue(fieldValue);
+      } else if (typeof(nameValue) === "object") {
+        if (nameValue.hasOwnProperty("prefix")) {
+          name = nameValue.prefix + fieldValue;
         }
 
-        if (fieldValue.hasOwnProperty("suffix")) {
-          name += fieldValue.suffix;
+        if (nameValue.hasOwnProperty("suffix")) {
+          name += nameValue.suffix;
         }
+      } else {
+        name = nameValue;
       }
 
       messages.push("<b>" + name + "</b>: " + fieldValue);
     }
 
-    showAlert("alert-success", messages.join("<br />"), alertContainer);
+    if (messages.length === 0) {
+      showAlert("alert-warning", "No results from calculation", alertContainer);
+    } else {
+      showAlert("alert-success", messages.join("<br />"), alertContainer);
+    }
   }
 }
 
@@ -75,7 +82,7 @@ function defineEndpoint(name, label, fields, responseValues, form, alertContaine
   }
 
   if (alertElement === null || alertElement === undefined) {
-    throw new Error("missing alert container `" + alertContainer + "'");
+    throw new Error("missing alert container");
   }
 
   formElement.onsubmit = function(e) {
