@@ -8,50 +8,48 @@
     <link rel="stylesheet" href="css/frontend.min.css">
   </head>
   <body>
-    <div class="container-wrapper">
-      <div class="container">
-        <h1 class="text-center calculator-header">Clinical Calculator</h1>
+    <div class="container">
+      <h1 class="text-center calculator-header">Clinical Calculator</h1>
 
-        <div class="row">
-          <div class="col-sm-8 col-sm-offset-2">
-            <div id="calculator-alert-box"></div>
-            <form id="calculator-form" class="calculator-form">
-              <div class="form-group">
-                <label for="field_weight_in_kg">Weight</label>
-                <div class="input-group">
-                  <input type="number" step="any" class="form-control" id="field_weight_in_kg">
-                  <span class="input-group-addon">kg</span>
-                </div>
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <div id="calculator-alert-box"></div>
+          <form id="calculator-form" class="calculator-form">
+            <div class="form-group">
+              <label for="field_weight_in_kg">Weight</label>
+              <div class="input-group">
+                <input type="number" step="any" class="form-control" id="field_weight_in_kg">
+                <span class="input-group-addon">kg</span>
               </div>
-              <div class="form-group">
-                <label for="field_height_in_m">Height</label>
-                <div class="input-group">
-                  <input type="number" step="any" class="form-control" id="field_height_in_m">
-                  <span class="input-group-addon">m</span>
-                </div>
+            </div>
+            <div class="form-group">
+              <label for="field_height_in_m">Height</label>
+              <div class="input-group">
+                <input type="number" step="any" class="form-control" id="field_height_in_m">
+                <span class="input-group-addon">m</span>
               </div>
-              <div class="form-group">
-                <label for="field_day_of_birth">Day of Birth</label>
-                <input type="number" step="any" class="form-control" id="field_day_of_birth">
-              </div>
-              <div class="form-group">
-                <label for="field_month_of_birth">Month of Birth</label>
-                <input type="number" step="any" class="form-control" id="field_month_of_birth">
-              </div>
-              <div class="form-group">
-                <label for="field_year_of_birth">Year of Birth</label>
-                <input type="number" step="any" class="form-control" id="field_year_of_birth">
-              </div>
-              <div class="form-group">
-                <label for="field_sex">Sex</label>
-                <select class="form-control" id="field_sex">
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
-              </div>
-              <button type="submit" class="btn btn-block btn-primary" data-loading-text="<span class=&quot;glyphicon glyphicon-cog glyphicon-spin&quot;></span>">Submit</button>
-            </form>
-          </div>
+            </div>
+            <div class="form-group">
+              <label for="field_day_of_birth">Day of Birth</label>
+              <input type="number" step="any" class="form-control" id="field_day_of_birth">
+            </div>
+            <div class="form-group">
+              <label for="field_month_of_birth">Month of Birth</label>
+              <input type="number" step="any" class="form-control" id="field_month_of_birth">
+            </div>
+            <div class="form-group">
+              <label for="field_year_of_birth">Year of Birth</label>
+              <input type="number" step="any" class="form-control" id="field_year_of_birth">
+            </div>
+            <div class="form-group">
+              <label for="field_sex">Sex</label>
+              <select class="form-control" id="field_sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-block btn-primary" data-loading-text="<span class=&quot;glyphicon glyphicon-cog glyphicon-spin&quot;></span>">Submit</button>
+          </form>
         </div>
       </div>
     </div>
@@ -70,7 +68,7 @@
         bmi_centile: "BMI Centile",
         height_centile: "Height Centile",
         weight_centile: "Weight Centile"
-      }, "calculator-form", "calculator-alert-box", "http://clinical-calculator-api.herokuapp.com", 80);
+      }, "calculator-form", "calculator-alert-box");
     </script>
   </body>
 </html>
