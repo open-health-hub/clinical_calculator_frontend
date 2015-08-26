@@ -9,8 +9,8 @@ function Endpoint(name, label) {
   });
 }
 
-Endpoint.prototype.request = function request(baseAddress, fields, callback) {
-  var address = new URI(baseAddress).port(4567).query("").path(this.name).toString();
+Endpoint.prototype.request = function request(baseAddress, port, fields, callback) {
+  var address = new URI(baseAddress).port(port).query("").path(this.name).toString();
 
   address += "?jsonp_callback=?";
 

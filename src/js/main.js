@@ -72,7 +72,7 @@ function endpointCallback(fields, responseValues, alertContainer, response) {
   }
 }
 
-function defineEndpoint(name, label, fields, responseValues, form, alertContainer, addressOverride) {
+function defineEndpoint(name, label, fields, responseValues, form, alertContainer, addressOverride, portOverride) {
   var endpoint = new FormEndpoint(name, label, Object.keys(fields)),
       formElement = document.getElementById(form),
       alertElement = document.getElementById(alertContainer);
@@ -88,10 +88,15 @@ function defineEndpoint(name, label, fields, responseValues, form, alertContaine
   formElement.onsubmit = function(e) {
     e.preventDefault();
 
-    var address = window.location.href;
+    var address = window.location.href,
+        port = 4567
 
     if (addressOverride !== null && addressOverride !== undefined) {
       address = addressOverride;
+    }
+
+    if (portOverride !== null && portOverride !== undefined) {
+      port = portOverride;
     }
 
     endpoint.request(address, endpointCallback.bind(null, fields, responseValues, alertElement));
