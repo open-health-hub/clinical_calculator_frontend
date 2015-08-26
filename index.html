@@ -49,17 +49,12 @@
                   <option value="female">Female</option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-block btn-primary">Submit</button>
+              <button type="submit" class="btn btn-block btn-primary" data-loading-text="<span class=&quot;glyphicon glyphicon-cog glyphicon-spin&quot;></span>">Submit</button>
             </form>
           </div>
         </div>
       </div>
     </div>
-
-    <!--<div class="calculator-loader">
-      <span class="loader-element glyphicon glyphicon-cog glyphicon-spin"></span>
-    </div>-->
-
 
     <script src="js/frontend.min.js"></script>
 
@@ -75,7 +70,7 @@
         bmi_centile: "BMI Centile",
         height_centile: "Height Centile",
         weight_centile: "Weight Centile"
-      }, "calculator-form", "calculator-alert-box", "http://clinical-calculator-api.herokuapp.com", 80);
+      }, "calculator-form", "calculator-alert-box");
     </script>
   </body>
 </html>
