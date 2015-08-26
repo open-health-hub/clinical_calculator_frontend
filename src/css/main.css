@@ -9,30 +9,7 @@ body {
   max-width: 400px;
 }
 
-
 .calculator-header {
   font-weight: bold;
   padding-bottom: 20px;
-}
-
-.calculator-loader {
-  background-color: rgba(0, 0, 0, 0.5);
-
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  margin: 0 auto;
-  padding-top: 20px;
-
-  text-align: center;
-
-  max-width: 400px;
-}
-
-.loader-element {
-  color: #FFFFFF;
-  font-size: 5em;
 }
