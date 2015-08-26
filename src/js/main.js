@@ -106,7 +106,7 @@ function defineEndpoint(name, label, fields, responseValues, form, alertContaine
     endpoint.request(address, port, function(response) {
       $submitButton.button("reset");
 
-      endpointCallback.bind(null, fields, responseValues, alertElement, response);
+      endpointCallback(fields, responseValues, alertElement, response);
     });
   };
 }
