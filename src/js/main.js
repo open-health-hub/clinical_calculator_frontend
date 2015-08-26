@@ -75,7 +75,9 @@ function endpointCallback(fields, responseValues, alertContainer, response) {
 function defineEndpoint(name, label, fields, responseValues, form, alertContainer, addressOverride, portOverride) {
   var endpoint = new FormEndpoint(name, label, Object.keys(fields)),
       formElement = document.getElementById(form),
-      alertElement = document.getElementById(alertContainer);
+      alertElement = document.getElementById(alertContainer),
+      $formElement = $(formElement),
+      $submitButton = $formElement.find(":submit");
 
   if (formElement === null || formElement === undefined) {
     throw new Error("missing form `" + form + "'");
@@ -99,6 +101,12 @@ function defineEndpoint(name, label, fields, responseValues, form, alertContaine
       port = portOverride;
     }
 
-    endpoint.request(address, port, endpointCallback.bind(null, fields, responseValues, alertElement));
+    $submitButton.button("loading");
+
+    endpoint.request(address, port, function(response) {
+      $submitButton.button("reset");
+
+      endpointCallback.bind(null, fields, responseValues, alertElement, response);
+    });
   };
 }
