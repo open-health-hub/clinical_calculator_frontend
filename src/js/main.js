@@ -99,6 +99,6 @@ function defineEndpoint(name, label, fields, responseValues, form, alertContaine
       port = portOverride;
     }
 
-    endpoint.request(address, endpointCallback.bind(null, fields, responseValues, alertElement));
+    endpoint.request(address, port, endpointCallback.bind(null, fields, responseValues, alertElement));
   };
 }
