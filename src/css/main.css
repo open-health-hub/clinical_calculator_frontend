@@ -4,9 +4,8 @@ body {
   padding-bottom: 20px;
 }
 
-.container-wrapper {
-  margin: 0 auto;
-  max-width: 400px;
+.container {
+  max-width: 600px;
 }
 
 .calculator-header {
